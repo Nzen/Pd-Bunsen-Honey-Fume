@@ -1,0 +1,33 @@
+apply plugin: 'java'
+
+repositories {
+	flatDir {
+		dirs 'lib' // '../../repo' differing workspaces
+	}
+}
+
+dependencies {
+	compile 'commons-cli:commons-cli:1.4',
+		'com.esotericsoftware.yamlbeans:yamlbeans:1.13'
+		// 'com.j2html:j2html:1.2.2'
+	
+}
+
+sourceSets {
+	main {
+		java {
+			srcDir 'src'
+		}
+	}
+}
+
+sourceCompatibility = 1.8
+version = '0.0'
+
+jar {
+	manifest {
+		attributes 'Main-Class' : 'ws.nzen.pdistillery.template.BunsenHoney',
+		'Class-Path': configurations.runtime.collect { it.getName() }.join( ' ' )
+	}
+}
+

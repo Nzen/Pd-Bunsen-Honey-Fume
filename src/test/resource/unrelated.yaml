@@ -1,0 +1,21 @@
+%YAML 1.1
+---
+plugins:
+    - mud-log
+    - bunsen-honeydew
+    - stevedore-unbottler
+date: 2018-01-07
+...
+---
+content:
+    banana fofana
+    mi mi momana, hanna
+...
+---
+"frank
+frazatta
+\n\n
+<a>gregory mendel</a>
+\n\n
+### a yaml comment, until I escape it"
+...

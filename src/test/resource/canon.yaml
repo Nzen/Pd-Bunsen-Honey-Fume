@@ -1,0 +1,19 @@
+%YAML 1.1
+---
+pd_left:
+ - mud-log
+ - bunsen-h
+...
+---
+"## PD Mud-Log\n\n
+
+Changes markdown text in specified, remote yaml files to html body text in yaml files in the specified folder.\n\n
+
+* -m &lt;path&gt; path to markdown config\n
+* -o &lt;path&gt; path to output folder\n
+* -f [path path ...] paths to files to transform to here, preferably not from here\n
+* -v verbose mode\n
+* -h show the list of arguments\n\n
+
+Released under lgpl v3.0 terms."
+...

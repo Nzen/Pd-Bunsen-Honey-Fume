@@ -1,0 +1,9 @@
+
+Pd Bunsen Honey Fume
+
+Copyright Nicholas Prado, released under terms of EUPL v1.2, as described at https://joinup.ec.europa.eu/sites/default/files/inline-files/EUPL%20v1_2%20EN(1).txt
+
+Pd Bunsen Honey Fume relies on  
+* YamlBeans, which is copyright Nathan Sweet and Ola Bini, released under MIT license terms.
+* Commons Cli, which is copyright Apache Software Foundation, released under Apache license terms.
+* j2html, which is copyright David Åsem released under Apache v2 license terms.
