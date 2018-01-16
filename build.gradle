@@ -8,8 +8,8 @@ repositories {
 
 dependencies {
 	compile 'commons-cli:commons-cli:1.4',
-		'com.esotericsoftware.yamlbeans:yamlbeans:1.13'
-		// 'com.j2html:j2html:1.2.2'
+		'com.esotericsoftware.yamlbeans:yamlbeans:1.13',
+		'com.j2html:j2html:1.2.2'
 	
 }
 

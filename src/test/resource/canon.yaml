@@ -1,19 +1,13 @@
-%YAML 1.1
----
-pd_left:
- - mud-log
- - bunsen-h
-...
----
-"## PD Mud-Log\n\n
-
-Changes markdown text in specified, remote yaml files to html body text in yaml files in the specified folder.\n\n
-
-* -m &lt;path&gt; path to markdown config\n
-* -o &lt;path&gt; path to output folder\n
-* -f [path path ...] paths to files to transform to here, preferably not from here\n
-* -v verbose mode\n
-* -h show the list of arguments\n\n
-
-Released under lgpl v3.0 terms."
-...
+!java.util.LinkedHashMap
+pd_left: [ bunsen-h ]
+--- |-
+   <h2>PD Mud-Log</h2>
+   <p>Changes markdown text in specified, remote yaml files to html body text in yaml files in the specified folder.</p>
+   <ul>
+   <li>-m &lt;path&gt; path to markdown config</li>
+   <li>-o &lt;path&gt; path to output folder</li>
+   <li>-f [path path ...] paths to files to transform to here, preferably not from here</li>
+   <li>-v verbose mode</li>
+   <li>-h show the list of arguments</li>
+   </ul>
+   <p>Released under lgpl v3.0 terms.</p>

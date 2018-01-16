@@ -2,13 +2,11 @@
 /** see ../../../../../../../LICENSE for release rights */
 package ws.nzen.pdistillery.template;
 
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.nio.file.Files;
 import java.nio.file.InvalidPathException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -18,7 +16,10 @@ import java.util.Map;
 import com.esotericsoftware.yamlbeans.YamlConfig;
 import com.esotericsoftware.yamlbeans.YamlReader;
 import com.esotericsoftware.yamlbeans.YamlWriter;
+import static j2html.TagCreator.*;
 
+import j2html.attributes.Attr;
+import j2html.tags.UnescapedText;
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.CommandLineParser;
 import org.apache.commons.cli.DefaultParser;
@@ -314,8 +315,9 @@ public class BunsenHoney
 					else
 					{
 						// this is our content to wrap
+						// for now,
 						String content = (String)document;
-						content = content.toUpperCase();
+						content = wrappedInHardcodedHtml( content );
 						burysInfo.write( content );
 					}
 					document = loadsInfo.read();
@@ -361,6 +363,23 @@ public class BunsenHoney
 			duplicate.write( maybeByte );
 			maybeByte = original.read();
 		}
+	}
+
+
+	protected String wrappedInHardcodedHtml( String bodyText )
+	{
+		String author = "BHF"; // get from config later
+		String knownCssOfRelativeDepth = "../../../css/basic.css";
+		String knownJsAtDepth = "../../../fancy/fold.js";
+		return document( html(
+			head(
+				meta().attr( Attr.CHARSET, "utf-8" ),
+				meta().attr( Attr.NAME, "Author" ).attr( Attr.VALUE, author ),
+				link().withRel( "stylesheet" ).withHref( knownCssOfRelativeDepth ),
+				script().withType( "text/javascript" ).withSrc( knownJsAtDepth )
+			),
+			body( new UnescapedText( bodyText ) )
+		) );
 	}
 
 }

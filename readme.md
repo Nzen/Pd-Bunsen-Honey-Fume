@@ -10,3 +10,4 @@ Wraos text in specified, remote yaml files with html template text in yaml files
 
 Released under eupl v1.2 terms. (ugh, it's like AGPL)
 
+Depends on  YamlBeans, Commons Cli, and j2html.
