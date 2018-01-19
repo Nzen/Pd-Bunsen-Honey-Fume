@@ -13,19 +13,20 @@ import java.nio.file.Paths;
 import java.util.List;
 import java.util.Map;
 
-import com.esotericsoftware.yamlbeans.YamlConfig;
-import com.esotericsoftware.yamlbeans.YamlReader;
-import com.esotericsoftware.yamlbeans.YamlWriter;
-import static j2html.TagCreator.*;
-
-import j2html.attributes.Attr;
-import j2html.tags.UnescapedText;
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.CommandLineParser;
 import org.apache.commons.cli.DefaultParser;
 import org.apache.commons.cli.HelpFormatter;
 import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
+
+import com.esotericsoftware.yamlbeans.YamlConfig;
+import com.esotericsoftware.yamlbeans.YamlReader;
+import com.esotericsoftware.yamlbeans.YamlWriter;
+
+import static j2html.TagCreator.*;
+import j2html.attributes.Attr;
+import j2html.tags.UnescapedText;
 
 /** Changes relevant yaml with html to yaml with more html */
 public class BunsenHoney
@@ -139,7 +140,8 @@ public class BunsenHoney
 		}
 		if ( userInput != null )
 		{
-			final String currentDir = "";
+			final String currentDir = ( File.pathSeparator.equals( ":" ) )
+					? "." : ""; // NOTE windows / linux current dir
 			if ( userInput.hasOption( templateConfigFlag ) )
 			{
 				doesStuff.setPath( userInput.getOptionValue(
@@ -186,11 +188,11 @@ public class BunsenHoney
 			{
 				if ( which == PathType.YAML )
 				{
-					templateConfig = place;
+					yamlConfig = place;
 				}
 				else if ( which == PathType.TEMPLATE )
 				{
-					yamlConfig = place;
+					templateConfig = place;
 				}
 				else if ( which == PathType.OUTPUT )
 				{

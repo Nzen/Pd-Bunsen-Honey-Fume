@@ -2,7 +2,7 @@ apply plugin: 'java'
 
 repositories {
 	flatDir {
-		dirs 'lib' // '../../repo' differing workspaces
+		dirs '../../repo' // 'lib' differing workspaces
 	}
 }
 
