@@ -26,6 +26,7 @@ import com.esotericsoftware.yamlbeans.YamlWriter;
 
 import static j2html.TagCreator.*;
 import j2html.attributes.Attr;
+import j2html.tags.Tag;
 import j2html.tags.UnescapedText;
 
 /** Changes relevant yaml with html to yaml with more html */
@@ -380,7 +381,15 @@ public class BunsenHoney
 				link().withRel( "stylesheet" ).withHref( knownCssOfRelativeDepth ),
 				script().withType( "text/javascript" ).withSrc( knownJsAtDepth )
 			),
-			body( new UnescapedText( bodyText ) )
+			body( div( nav(
+					new UnescapedText( "&nbsp;" ), br(),
+					a( "Home" ).attr( Attr.HREF, "../../../index.html" ), br(),
+					a( "Autobio" ).attr( Attr.HREF, "../../../autobio/index.html" ), br(),
+					a( "Encyclo" ).attr( Attr.HREF, "../../../encyclo/index.html" ), br(),
+					a( "Blogs" ).attr( Attr.HREF, "../../../blogs.html" ), br(),
+					a( "External" ).attr( Attr.HREF, "../../../autobio/elsewhere.html" ), br()
+				) ).attr( Attr.CLASS, "l_links" ) ),
+			div( new UnescapedText( bodyText ) ).attr( Attr.CLASS, "content" )
 		) );
 	}
 
